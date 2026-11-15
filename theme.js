@@ -2,8 +2,7 @@
   const page = document.documentElement.dataset.page || 'home';
   let seed = 7; const rnd = () => (seed = (seed*16807) % 2147483647) / 2147483647;
   const greens = ['#7FA08C','#9DB8A5','#6A8F7B','#B7CBB9','#587D69','#8EAE9A'];
-  const flowers = page==='hindu' ? ['#EFA7BE','#F6C6D5','#E58AA8']
-                : page==='christian' ? ['#FFF8E6','#F4E7C8'] : ['#F6C6D5','#FFF8E6'];
+  const flowers = ['#FFF8E6','#F4E7C8','#F6C6D5'];
   const NS='http://www.w3.org/2000/svg';
   const el=(n,a)=>{ const e=document.createElementNS(NS,n); for(const k in a) e.setAttribute(k,a[k]); return e; };
 
@@ -29,7 +28,7 @@
       svg.appendChild(g);
     });
     // a few blossoms near the tip
-    const cnt = page==='christian' ? 3 : 5;
+    const cnt = 4;
     for(let i=0;i<cnt;i++){
       const [x,y]=pt(.45+rnd()*.55), ox=(rnd()-.5)*60, oy=(rnd()-.5)*30, c=flowers[Math.floor(rnd()*flowers.length)];
       const f=el('g',{transform:'translate('+(x+ox)+','+(y+oy)+')',opacity:.9});
