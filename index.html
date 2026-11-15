@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" data-page="home">
+<html lang="en" data-page="christian">
 <head>
 <meta charset="UTF-8">
-<title>Jestin & Poorani | Save the Date</title>
+<title>Jestin & Poorani | Christian Wedding &middot; Save the Date</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600&family=Parisienne&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -107,7 +107,6 @@
   }
   .door:hover{ transform:translateY(-6px); box-shadow:0 30px 60px -26px rgba(0,0,0,0.6); }
   .door.christian{ --accent:var(--lilac); }
-  .door.hindu{ --accent:var(--rose); }
   .door-icon{
     width:64px; height:64px; border-radius:50%; display:flex; align-items:center; justify-content:center;
     background:color-mix(in srgb, var(--accent) 22%, #1B1428); font-size:26px; margin-bottom:16px;
@@ -203,6 +202,14 @@
   .wish-overlay.unseal .gate-hint{ animation:none; opacity:0; }
 </style>
 <link rel="stylesheet" href="theme.css">
+<style>.eyebrow{ color:var(--accent) !important; } .doors{ margin-top:6px; }</style>
+<script>
+/* always start at the top of the page */
+try{ if('scrollRestoration' in history) history.scrollRestoration='manual'; }catch(e){}
+window.scrollTo(0,0);
+window.addEventListener('pageshow',function(){ window.scrollTo(0,0); });
+window.addEventListener('load',function(){ window.scrollTo(0,0); });
+</script>
 </head>
 <body>
 
@@ -235,21 +242,14 @@
   <div class="wrap">
     <div class="eyebrow">Save the Date</div>
     <h1 class="names">Jestin <span class="amp">&amp;</span> Poorani</h1>
-    <div class="tagline">Two ceremonies, two traditions — choose a celebration to explore</div>
+    <div class="tagline">Join us as we exchange our vows in the church we hold so dear</div>
 
     <div class="doors">
-      <a class="door christian" href="christian.html">
+      <a class="door christian" href="invitation.html">
         <div class="door-icon">✝️</div>
         <div class="door-date">Sat, 2 January 2027</div>
         <h2>Christian Wedding</h2>
         <p>Wedding &amp; Reception<br>Thrissur, Kerala</p>
-        <span class="door-cta">View Invitation</span>
-      </a>
-      <a class="door hindu" href="hindu.html">
-        <div class="door-icon">🪔</div>
-        <div class="door-date">Wed, 20 January 2027</div>
-        <h2>Hindu Wedding</h2>
-        <p>Muhurtham Ceremony<br>Trichy, Tamil Nadu</p>
         <span class="door-cta">View Invitation</span>
       </a>
     </div>
@@ -298,6 +298,7 @@ function openCover(){
   const site = document.getElementById('site');
   if(cover.classList.contains('unseal')) return;
   cover.classList.add('unseal');
+  window.scrollTo(0,0);
   site.classList.add('revealed');
   // a real click is a user gesture: start music right away if nothing was already playing
   if(!musicOn){ toggleMusic(); }
@@ -305,7 +306,8 @@ function openCover(){
     cover.classList.add('open');
     site.classList.add('revealed');
     document.body.style.overflow = 'auto';
-    setTimeout(()=>{ cover.style.display = 'none'; }, 1000);
+    window.scrollTo(0,0);
+    setTimeout(()=>{ cover.style.display = 'none'; window.scrollTo(0,0); }, 1000);
   }, 1500);
 }
 document.body.style.overflow = 'hidden';
